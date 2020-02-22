@@ -1,0 +1,25 @@
+$iconWidth: 20px;
+$iconHeight: 20px;
+
+.action {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center;
+
+  .iconcontainer {
+    width: $iconWidth;
+
+    img {
+      height: $iconHeight
+    }
+  }
+
+  .label {
+    flex: 1;
+  }
+
+  &:hover {
+    background-color: darkgrey;
+  }
+}
