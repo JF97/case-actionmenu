@@ -26,7 +26,24 @@ export class ActionmenuComponent implements OnInit, OnDestroy {
     this.action.emit(action);
     this.hideMenu();
   }
+  
+  // hides actionmenu if click event was fired outside the component
+  checkOutsideClicks(event: MouseEvent): void {
+    if (this.menuVisible && !this.el.nativeElement.contains(event.target)) {
+      this.hideMenu();
+    }
+  }
 
+  // hides the actionmenu and removes unnecessary data/listeners
+  hideMenu(): void {
+    if (this.popper) {
+      this.popper.destroy();
+    }
+    this.actionsAlt = null;
+    this.menuVisible = false;
+    document.removeEventListener('mousedown', (e) => this.checkOutsideClicks(e));
+  }
+  
   // shows the actionmenu
   // takes optional arguments actions, menuPosition and positioningTargetId
   // for overriding values of Input variables
@@ -41,15 +58,9 @@ export class ActionmenuComponent implements OnInit, OnDestroy {
     this.popper = new Popper(target, this.el.nativeElement, options);
 
     this.menuVisible = true;
-  }
-
-  // hides the actionmenu
-  hideMenu(): void {
-    if (this.popper) {
-      this.popper.destroy();
-    }
-    this.actionsAlt = null;
-    this.menuVisible = false;
+    
+    // adds listener for clicks outside component
+    document.addEventListener('mousedown', (e) => this.checkOutsideClicks(e));
   }
 
   // shows the actionmenu if hidden, hides it if visible
