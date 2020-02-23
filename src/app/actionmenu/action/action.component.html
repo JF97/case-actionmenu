@@ -1,4 +1,6 @@
-<div class="action" (click)="emitActionEvent()">
-  <div class="iconcontainer"><img [src]="iconPath"></div>
-  <div class="label">{{ label }}</div>
-</div>
+<button class="action" (click)="emitActionEvent()">
+  <span class="flex">
+    <div class="iconcontainer"><img [src]="iconPath"></div>
+    <div class="label">{{ label }}</div>
+  </span>
+</button>

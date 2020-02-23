@@ -1,25 +1,41 @@
-$iconWidth: 20px;
-$iconHeight: 20px;
+$iconWidth: 15px;
+$iconHeight: 15px;
 
 .action {
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: flex-start;
-  align-items: center;
+  padding: 5px;
+  border-radius: 3px;
+  transition: 0.2s;
+  color: #555;
+  font-size: 12px;
+  display: block;
+  border: none;
+  width: 100%;
+  text-align: left;
 
-  .iconcontainer {
-    width: $iconWidth;
+  .flex {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: center;
 
-    img {
-      height: $iconHeight
+    .iconcontainer {
+      width: $iconWidth;
+      height: $iconHeight;
+  
+      img {
+        height: inherit;
+      }
+    }
+  
+    .label {
+      margin-left: 7px;
+      flex: 1;
     }
   }
 
-  .label {
-    flex: 1;
-  }
+  
 
   &:hover {
-    background-color: darkgrey;
+    background-color: #eee;
   }
 }

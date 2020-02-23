@@ -1,10 +1,17 @@
 .menu {
-  background-color: lightgrey;
   display: none;
   width: auto;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 1px 15px rgba(0, 0, 0, 0.2);
+  padding: 5px;
 
   .section:not(:first-child) {
-    border-top: 1px solid black;
+    border-top: 1px solid lightgrey;
+    padding-top: 5px;
+  }
+  .section:not(:last-child) {
+    padding-bottom: 5px;
   }
 
   &.visible {

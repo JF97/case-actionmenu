@@ -15,26 +15,26 @@ export class AppComponent {
   // example actions 1
   actionSet1: Action[][] = [
     [
-      { iconPath: 'x', label: 'Share', 'identifier': 'share' },
-      { iconPath: 'x', label: 'Edit', 'identifier': 'edit' },
-      { iconPath: 'x', label: 'Delete', 'identifier': 'delete' }
+      { iconPath: 'assets/icons/edit.svg', label: 'Share', 'identifier': 'share' },
+      { iconPath: 'assets/icons/edit.svg', label: 'Edit', 'identifier': 'edit' },
+      { iconPath: 'assets/icons/remove.svg', label: 'Delete', 'identifier': 'delete' }
     ]
   ]
 
   // example actions 2
   actionSet2: Action[][] = [
     [
-      { iconPath: 'x', label: 'Present', 'identifier': 'present' },
-      { iconPath: 'x', label: 'Open Mentimote', 'identifier': 'mentimote' },
-      { iconPath: 'x', label: 'Export results', 'identifier': 'export' }
+      { iconPath: 'assets/icons/edit.svg', label: 'Present', 'identifier': 'present' },
+      { iconPath: 'assets/icons/edit.svg', label: 'Open Mentimote', 'identifier': 'mentimote' },
+      { iconPath: 'assets/icons/remove.svg', label: 'Export results', 'identifier': 'export' }
     ], [
-      { iconPath: 'x', label: 'Share with organization', 'identifier': 'organization' },
-      { iconPath: 'x', label: 'Share voting link', 'identifier': 'link' }
+      { iconPath: 'assets/icons/edit.svg', label: 'Share with organization', 'identifier': 'organization' },
+      { iconPath: 'assets/icons/remove.svg', label: 'Share voting link', 'identifier': 'link' }
     ], [
-      { iconPath: 'x', label: 'Rename', 'identifier': 'rename' },
-      { iconPath: 'x', label: 'Move to Folder', 'identifier': 'move' },
-      { iconPath: 'x', label: 'Duplicate', 'identifier': 'duplicate' },
-      { iconPath: 'x', label: 'Delete', 'identifier': 'delete' }
+      { iconPath: 'assets/icons/edit.svg', label: 'Rename', 'identifier': 'rename' },
+      { iconPath: 'assets/icons/edit.svg', label: 'Move to Folder', 'identifier': 'move' },
+      { iconPath: 'assets/icons/edit.svg', label: 'Duplicate', 'identifier': 'duplicate' },
+      { iconPath: 'assets/icons/remove.svg', label: 'Delete', 'identifier': 'delete' }
     ]
   ]
 

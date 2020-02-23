@@ -3,7 +3,17 @@
 
 <h1>This is a demo for the action menu</h1>
 
-<button id="ambutton1" (click)="actionmenu.toggleMenu(actionSet1, 'right-start', 'ambutton1')">showActionMenu1</button>
-<button id="ambutton2" (click)="actionmenu.toggleMenu(actionSet2, 'right-start', 'ambutton2')">showActionMenu2</button>
+<div class="buttons">
+  <button id="ambutton1" 
+    (click)="actionmenu.toggleMenu(actionSet1, 'bottom-start', 'ambutton1')">
+    show actionmenu 1
+  </button>
+  <button id="ambutton2" 
+    (click)="actionmenu.toggleMenu(actionSet2, 'bottom-start', 'ambutton2')">
+    show actionmenu 2
+  </button>
+</div>
 
-<p *ngIf="clickedAction">Action '{{ clickedAction }}' was clicked.</p>
+
+
+<p *ngIf="clickedAction" class="info">Action '{{ clickedAction }}' was clicked.</p>
