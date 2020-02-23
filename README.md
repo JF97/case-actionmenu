@@ -1,27 +1,55 @@
 # CaseActionmenu
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.1.
+This project is a short demo for an actionmenu. I used the Angular Framework and popper.js for the actionmenu positioning. After installing node modules with `npm i` run the demo with `ng serve`. 
 
-## Development server
+## How to use for development
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+During development the actionmenu can be used like this:
 
-## Code scaffolding
+Add 
+```typescript
+ViewChild('actionmenu') actionmenu: ActionmenuComponent;
+```
+(+imports) to the controller of the component you want to add an actionmenu to.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Define some actions for the menu like this:
+```typescript
+actionSet = [  
+  [
+    { iconPath: 'assets/icons/edit.svg', label: 'Share', 'identifier': 'share' },
+    { iconPath: 'assets/icons/edit.svg', label: 'Edit', 'identifier': 'edit' },
+    { iconPath: 'assets/icons/remove.svg', label: 'Delete', 'identifier': 'delete' }
+  ] 
+]
+```
+Every action consists of a path to an icon file, a label that is displayed in the menu and an identifier that is used to determine which action was pressed.
 
-## Build
+Add
+```html
+<app-actionmenu #actionmenu (action)="eventHandler($event)"></app-actionmenu>
+```
+to the view of a component.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+The menu can then be used with a button like this
+```html
+<app-actionmenu #actionmenu (action)="eventHandler($event)"></app-actionmenu>
 
-## Running unit tests
+<button id="ambutton" (click)="actionmenu.toggleMenu(actionSet, 'bottom-start', 'ambutton')">
+  show actionmenu
+</button>
+```
+or this
+```html
+<app-actionmenu #actionmenu [actions]="actionSet" 
+                            [menuPosition]="'bottom-start'" 
+                            [positioningTargetId]="ambutton" 
+                            (action)="eventHandler($event)">
+</app-actionmenu>
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+<button id="ambutton" (click)="actionmenu.toggleMenu()">
+  show actionmenu
+</button>
+```
 
-## Running end-to-end tests
+If the user then clicks the button, an actionmenu will open with the specified actions in the specified position relative to the specified target. If the user clicks outside the actionmenu, the menu will close. If the user clicks on an action in the menu, an event 'action' will be fired which contains the identifier of the sepecific action that was clicked. You can then use an event handler that calls different functions depending on the event content.
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
