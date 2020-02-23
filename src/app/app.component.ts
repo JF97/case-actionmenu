@@ -13,7 +13,7 @@ export class AppComponent {
   clickedAction: string; // stores last clicked action for this demo
 
   // example actions 1
-  actionSets1: Action[][] = [
+  actionSet1: Action[][] = [
     [
       { iconPath: 'x', label: 'Share', 'identifier': 'share' },
       { iconPath: 'x', label: 'Edit', 'identifier': 'edit' },
@@ -22,7 +22,7 @@ export class AppComponent {
   ]
 
   // example actions 2
-  actionSets2: Action[][] = [
+  actionSet2: Action[][] = [
     [
       { iconPath: 'x', label: 'Present', 'identifier': 'present' },
       { iconPath: 'x', label: 'Open Mentimote', 'identifier': 'mentimote' },
@@ -38,6 +38,5 @@ export class AppComponent {
     ]
   ]
 
-  @ViewChild('actionmenu1') actionmenu1: ActionmenuComponent;
-  @ViewChild('actionmenu2') actionmenu2: ActionmenuComponent;
+  @ViewChild('actionmenu') actionmenu: ActionmenuComponent;
 }

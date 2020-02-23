@@ -11,8 +11,9 @@ export class ActionmenuComponent implements OnInit, OnDestroy {
 
   menuVisible = false;
   popper: Popper;
+  actionsAlt: Action[][];
 
-  @Input() actionSets: Action[][];
+  @Input() actions: Action[][];
   @Input() menuPosition: Placement;
   @Input() positioningTargetId: string;
 
@@ -27,10 +28,16 @@ export class ActionmenuComponent implements OnInit, OnDestroy {
   }
 
   // shows the actionmenu
-  showMenu(): void {
+  // takes optional arguments actions, menuPosition and positioningTargetId
+  // for overriding values of Input variables
+  showMenu(actions?: Action[][], menuPosition?: Placement, positioningTargetId?: string): void {
+    const menuPos = menuPosition;
+    const posTarget = positioningTargetId;
+    this.actionsAlt = actions;
+
     // popper.js for positioning
-    const options: PopperOptions = { placement: this.menuPosition };
-    const target = document.getElementById(this.positioningTargetId);
+    const options: PopperOptions = { placement: menuPos || this.menuPosition };
+    const target = document.getElementById(posTarget || this.positioningTargetId);
     this.popper = new Popper(target, this.el.nativeElement, options);
 
     this.menuVisible = true;
@@ -41,15 +48,16 @@ export class ActionmenuComponent implements OnInit, OnDestroy {
     if (this.popper) {
       this.popper.destroy();
     }
+    this.actionsAlt = null;
     this.menuVisible = false;
   }
 
   // shows the actionmenu if hidden, hides it if visible
-  toggleMenu(): void {
+  toggleMenu(actions?: Action[][], menuPosition?: Placement, positioningTargetId?: string): void {
     if (this.menuVisible) {
       this.hideMenu();
     } else {
-      this.showMenu();
+      this.showMenu(actions, menuPosition, positioningTargetId);
     }
   }
 

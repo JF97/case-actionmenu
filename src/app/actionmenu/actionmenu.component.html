@@ -1,5 +1,5 @@
 <div class="menu" [class.visible]="menuVisible">
-  <div *ngFor="let set of actionSets" class="section">
+  <div *ngFor="let set of actionsAlt || actions" class="section">
     <app-action *ngFor="let action of set" 
                 [iconPath]="action.iconPath" 
                 [label]="action.label" 
