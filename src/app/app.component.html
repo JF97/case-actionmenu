@@ -1,14 +1,18 @@
 
 <app-actionmenu #actionmenu1 [actionSets]="actionSets1" 
                              [menuPosition]="'right-start'"
-                             [positioningTargetId]="'ambutton1'">
+                             [positioningTargetId]="'ambutton1'" 
+                             (action)="clickedAction = $event">
 </app-actionmenu>
 <app-actionmenu #actionmenu2 [actionSets]="actionSets2" 
                              [menuPosition]="'right-start'"
-                             [positioningTargetId]="'ambutton2'">
+                             [positioningTargetId]="'ambutton2'"
+                             (action)="clickedAction = $event">
 </app-actionmenu>
 
 <h1>This is a demo for the action menu</h1>
 
 <button id="ambutton1" (click)="actionmenu1.toggleMenu()">showActionMenu1</button>
 <button id="ambutton2" (click)="actionmenu2.toggleMenu()">showActionMenu2</button>
+
+<p *ngIf="clickedAction">Action '{{ clickedAction }}' was clicked.</p>

@@ -10,6 +10,8 @@ import { ActionmenuComponent } from './actionmenu/actionmenu.component';
 export class AppComponent {
   title = 'case-actionmenu';
 
+  clickedAction: string; // stores last clicked action for this demo
+
   // example actions 1
   actionSets1: Action[][] = [
     [

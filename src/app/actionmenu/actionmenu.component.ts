@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, Input, ElementRef } from '@angular/core';
+import { Component, OnInit, OnDestroy, Input, ElementRef, Output, EventEmitter } from '@angular/core';
 import { Action } from '../interfaces/action';
 import Popper, { PopperOptions, Placement } from 'popper.js';
 
@@ -16,7 +16,15 @@ export class ActionmenuComponent implements OnInit, OnDestroy {
   @Input() menuPosition: Placement;
   @Input() positioningTargetId: string;
 
+  @Output() action: EventEmitter<string> = new EventEmitter<string>();
+
   constructor(private el: ElementRef) { }
+
+  // emits action event with action identifier and hides menu when an action was clicked
+  actionClicked(action: string): void {
+    this.action.emit(action);
+    this.hideMenu();
+  }
 
   // shows the actionmenu
   showMenu(): void {

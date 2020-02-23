@@ -3,7 +3,8 @@
     <app-action *ngFor="let action of set" 
                 [iconPath]="action.iconPath" 
                 [label]="action.label" 
-                [identifier]="action.identifier">
+                [identifier]="action.identifier" 
+                (action)="actionClicked($event)">
     </app-action>
   </div>
 </div>
